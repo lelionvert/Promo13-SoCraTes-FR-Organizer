@@ -1,5 +1,14 @@
 public class Meal {
-    public int getColdMeals() {
-        return 0;
+
+    private int numberOfVisitors;
+
+    public Meal(int numberOfVisitors) {
+        this.numberOfVisitors = numberOfVisitors;
     }
+
+    public int getColdMeals() {
+        return numberOfVisitors;
+    }
+
+
 }
