@@ -18,5 +18,19 @@ public class MealTest {
         assertThat(result).isEqualTo(5);
     }
 
+    @Test
+    public void twoColdMealsFromAllParticipants(){
+        Meal meal = new Meal(10,8);
+        int result = meal.getColdMeals();
+        assertThat(result).isEqualTo(2);
+    }
+
+    @Test
+    public void threeColdMealsFromAllParticipants(){
+        Meal meal = new Meal(10,7);
+        int result = meal.getColdMeals();
+        assertThat(result).isEqualTo(3);
+    }
+
 
 }
