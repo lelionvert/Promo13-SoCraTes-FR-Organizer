@@ -1,23 +1,24 @@
 public class Meal {
 
-    private int numberOfParticipants;
-    private int numberOfPunctualParticipants;
+    private int participants;
+    private int punctualParticipants;
 
-    public Meal(int numberOfParticipants) {
-        this.numberOfParticipants = numberOfParticipants;
+    public Meal(int participants) {
+        this.participants = participants;
+        this.punctualParticipants = 0;
     }
 
-    public Meal(int numberOfParticipants, int numberOfPunctualParticipants) {
-        this.numberOfParticipants = numberOfParticipants;
-        this.numberOfPunctualParticipants = numberOfPunctualParticipants;
+    public Meal(int participants, int punctualParticipants) {
+        this.participants = participants;
+        this.punctualParticipants = punctualParticipants;
     }
 
 
     public int getColdMeals() {
-        if(numberOfParticipants == 10) {
-            return numberOfParticipants - numberOfPunctualParticipants;
+        if(participants == 10) {
+            return participants - punctualParticipants;
         }
-        return numberOfParticipants;
+        return participants;
     }
 
 
