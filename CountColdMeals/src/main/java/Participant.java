@@ -8,8 +8,6 @@ public class Participant {
 
 
     public boolean haveAColdMeal() {
-        if(arrivalTime < 21)
-            return false;
-        return true;
+        return arrivalTime >= 21;
     }
 }
