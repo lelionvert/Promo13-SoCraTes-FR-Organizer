@@ -40,6 +40,11 @@ public class ParticipantTest {
         assertThat(participant.haveAColdMeal()).isTrue();
     }
 
+    @Test
+    public void participantArrivedAt22hOnFridayMustHaveNoColdMeals(){
+        Participant participant = new Participant(22,0,5);
+        assertThat(participant.haveAColdMeal()).isFalse();
+    }
 
 
 }
