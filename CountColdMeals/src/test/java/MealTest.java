@@ -28,4 +28,14 @@ public class MealTest {
         assertThat(meal.getColdMeals()).isEqualTo(0);
     }
 
+    @Test
+    public void twoParticipantsArrivedBothNotOnTimeMustHaveTwoColdMeals(){
+        Participant firstParticipant = Participant.createParticipantHourMinuteDay(22,0,4);
+        Participant secondParticipant = Participant.createParticipantHourMinuteDay(22,0,4);
+        Meal meal = new Meal(Arrays.asList(firstParticipant,secondParticipant));
+        assertThat(meal.getColdMeals()).isEqualTo(2);
+    }
+
+
+
 }

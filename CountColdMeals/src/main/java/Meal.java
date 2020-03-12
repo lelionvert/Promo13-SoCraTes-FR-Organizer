@@ -14,7 +14,11 @@ public class Meal {
     }
 
     public int getColdMeals() {
+
         if (this.listParticipants != null ){
+            if (this.listParticipants.get(0).haveAColdMeal()){
+                return 2;
+            }
             return 0;
         }
         if (! this.participant.haveAColdMeal()){
