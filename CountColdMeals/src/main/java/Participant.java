@@ -4,8 +4,7 @@ public class Participant {
     public Integer arrivalHour;
 
     public Participant(Integer arrivalHour) {
-        this.arrivalHour = arrivalHour;
-        this.arrivalMinute = 0;
+        this(arrivalHour, 0);
     }
 
     public Participant(Integer arrivalHour, Integer arrivalMinute) {
