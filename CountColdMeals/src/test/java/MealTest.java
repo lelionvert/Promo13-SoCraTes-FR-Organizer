@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class MealTest {
@@ -18,5 +20,12 @@ public class MealTest {
         assertThat(meal.getColdMeals()).isEqualTo(1);
     }
 
+    @Test
+    public void twoParticipantsArrivedBothOnTimeDoNotHaveAnyColdMeals(){
+        Participant firstParticipant = Participant.createParticipantHourMinuteDay(18,0,4);
+        Participant secondParticipant = Participant.createParticipantHourMinuteDay(18,0,4);
+        Meal meal = new Meal(Arrays.asList(firstParticipant,secondParticipant));
+        assertThat(meal.getColdMeals()).isEqualTo(0);
+    }
 
 }
