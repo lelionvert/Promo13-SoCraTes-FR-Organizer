@@ -40,7 +40,15 @@ public class MealTest {
     @Test
     public void twoParticipantsArrivedOneBeforeAndOneAfterHaveOnlyOneColdMeal(){
         Participant firstParticipant = Participant.createParticipantHourMinuteDay(18, 0,4);
-        Participant secondParticipant = Participant.createParticipantHourMinuteDay(22,0,4);
+        Participant secondParticipant = Participant.createParticipantHourMinuteDay(21,1,4);
+        Meal meal = new Meal(Arrays.asList(firstParticipant,secondParticipant));
+        assertThat(meal.getColdMeals()).isEqualTo(1);
+    }
+
+    @Test
+    public void twoParticipantsArrivedAfterMidnight(){
+        Participant firstParticipant = Participant.createParticipantHourMinuteDay(0, 0,5);
+        Participant secondParticipant = Participant.createParticipantHourMinuteDay(18,0,5);
         Meal meal = new Meal(Arrays.asList(firstParticipant,secondParticipant));
         assertThat(meal.getColdMeals()).isEqualTo(1);
     }
