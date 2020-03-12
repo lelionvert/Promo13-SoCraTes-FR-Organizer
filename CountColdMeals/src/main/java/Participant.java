@@ -24,4 +24,12 @@ public class Participant {
         return arrivalDate.isInTheRightTime();
     }
 
+    @Override
+    public String toString() {
+        return "Participant{" +
+                "arrivalDate=" + arrivalDate +
+                '}';
+    }
+
+
 }

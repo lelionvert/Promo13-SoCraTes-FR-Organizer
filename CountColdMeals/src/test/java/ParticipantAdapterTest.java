@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Test;
 
 
+import java.util.Arrays;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ParticipantAdapterTest {
@@ -20,5 +22,9 @@ public class ParticipantAdapterTest {
         Meal meal = adapter.parser();
         assertThat(meal).isNotNull();
     }
+
+
+
+
 
 }

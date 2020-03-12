@@ -3,11 +3,11 @@ import java.util.List;
 public class Meal {
 
     private List<Participant> listParticipants;
-    private static Integer countOfColdMeals;
+    private Integer countOfColdMeals;
 
     public Meal(List<Participant> listParticipants) {
         this.listParticipants = listParticipants;
-        countOfColdMeals = 0;
+        this.countOfColdMeals = 0;
     }
 
     public int getColdMeals() {

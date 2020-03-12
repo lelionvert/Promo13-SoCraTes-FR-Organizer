@@ -37,6 +37,7 @@ public class MealTest {
         assertThat(meal.getColdMeals()).isEqualTo(2);
     }
 
+
     @Test
     public void twoParticipantsArrivedOneBeforeAndOneAfterHaveOnlyOneColdMeal(){
         Participant firstParticipant = Participant.createParticipantHourMinuteDay(18, 0,4);

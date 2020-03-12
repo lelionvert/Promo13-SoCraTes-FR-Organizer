@@ -13,10 +13,17 @@ public class ParticipantAdapter {
 
 
     public Meal parser() {
+        Participant participant;
         String[] arrayOfInfo = csvContent.split(";");
         String[] arrivalTime = arrayOfInfo[2].split("h");
-        Participant participant = Participant.createParticipantHourMinuteDay(Integer.valueOf(arrivalTime[0].trim())
-                ,Integer.valueOf(arrivalTime[1].trim()),4);
+        if (arrayOfInfo[1].trim().equals("friday")) {
+            participant = Participant.createParticipantHourMinuteDay(Integer.valueOf(arrivalTime[0].trim())
+                    , Integer.valueOf(arrivalTime[1].trim()), 5);
+
+        } else {
+            participant = Participant.createParticipantHourMinuteDay(Integer.valueOf(arrivalTime[0].trim())
+                    , Integer.valueOf(arrivalTime[1].trim()), 4);
+        }
         return new Meal(Arrays.asList(participant));
     }
 }

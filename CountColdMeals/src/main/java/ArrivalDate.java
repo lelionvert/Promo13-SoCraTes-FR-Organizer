@@ -54,6 +54,15 @@ public class ArrivalDate {
         return MIDNIGHT.equals(hour) && FIRST_MINUTE.equals(minute) && FIRST_DAY.equals(day - 1);
     }
 
+    @Override
+    public String toString() {
+        return "ArrivalDate{" +
+                "day=" + day +
+                ", minute=" + minute +
+                ", hour=" + hour +
+                '}';
+    }
+
     private boolean isAfterStartTime() {
         if (END_OF_HOT_MEALS.equals(hour)) {
             return minute > 0;
@@ -65,4 +74,6 @@ public class ArrivalDate {
     private boolean isOnTheFirstDay() {
         return FIRST_DAY.equals(day);
     }
+
+    
 }
