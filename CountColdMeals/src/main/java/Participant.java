@@ -1,14 +1,14 @@
 public class Participant {
 
-    private Integer arrivalDay;
-    private Integer arrivalMinute;
-    public Integer arrivalHour;
+
+
+    public ArrivalDate arrivalDate;
+
 
 
     private Participant(Integer arrivalHour, Integer arrivalMinute, Integer arrivalDay) {
-        this.arrivalHour = arrivalHour;
-        this.arrivalMinute = arrivalMinute;
-        this.arrivalDay = arrivalDay;
+        this.arrivalDate = new ArrivalDate(arrivalHour, arrivalMinute, arrivalDay);
+
     }
 
     public static Participant createParticipantHour(Integer arrivalHour){
@@ -25,14 +25,8 @@ public class Participant {
 
 
     public boolean haveAColdMeal() {
-        if(arrivalDay != 4 ){
-            return false;
-        }
-        if (arrivalHour== 21){
-            return arrivalMinute > 0;
-        } else {
-            return arrivalHour > 21 && arrivalHour < 24;
-        }
+        return arrivalDate.isBetween();
 
     }
+
 }

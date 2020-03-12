@@ -7,7 +7,7 @@ public class ParticipantTest {
     @Test
     public void aParticipantHaveAnArrivalTime(){
         Participant participant =  Participant.createParticipantHour(20);
-        assertThat(participant.arrivalHour).isNotNull();
+        assertThat(participant.arrivalDate).isNotNull();
     }
 
     @Test

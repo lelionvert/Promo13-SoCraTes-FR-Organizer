@@ -19,4 +19,6 @@ public class ArrivalDateTest {
         assertThat(arrivalDate.getDay()).isNotNull();
     }
 
+   
+
 }
