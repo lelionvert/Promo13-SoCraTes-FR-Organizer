@@ -18,6 +18,8 @@ public class Meal {
         if (this.listParticipants != null ){
             if (this.listParticipants.get(0).haveAColdMeal()){
                 return 2;
+            } else if (this.listParticipants.get(1).haveAColdMeal()){
+                return 1;
             }
             return 0;
         }

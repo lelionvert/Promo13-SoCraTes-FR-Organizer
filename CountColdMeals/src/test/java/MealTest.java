@@ -36,6 +36,14 @@ public class MealTest {
         assertThat(meal.getColdMeals()).isEqualTo(2);
     }
 
+    @Test
+    public void twoParticipantsArrivedOneBeforeAndOneAfterHaveOnlyOneColdMeal(){
+        Participant firstParticipant = Participant.createParticipantHourMinuteDay(18, 0,4);
+        Participant secondParticipant = Participant.createParticipantHourMinuteDay(22,0,4);
+        Meal meal = new Meal(Arrays.asList(firstParticipant,secondParticipant));
+        assertThat(meal.getColdMeals()).isEqualTo(1);
+    }
+
 
 
 }
