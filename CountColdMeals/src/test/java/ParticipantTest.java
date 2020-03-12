@@ -7,7 +7,7 @@ public class ParticipantTest {
     @Test
     public void aParticipantHaveAnArrivalTime(){
         Participant participant = new Participant(20);
-        assertThat(participant.arrivalTime).isNotNull();
+        assertThat(participant.arrivalHour).isNotNull();
     }
 
     @Test
@@ -21,5 +21,25 @@ public class ParticipantTest {
         Participant participant = new Participant(22);
         assertThat(participant.haveAColdMeal()).isTrue();
     }
+
+    @Test
+    public void ParticipantArrivedAfter00MustNotHaveMeals(){
+        Participant participant = new Participant(24);
+        assertThat(participant.haveAColdMeal()).isFalse();
+    }
+
+    @Test
+    public void participantArrivedAt21h00MustHaveHotMeals(){
+        Participant participant = new Participant(21);
+        assertThat(participant.haveAColdMeal()).isFalse();
+    }
+
+    @Test
+    public void participantArrivedAt21h01MustHaveColdMeals(){
+        Participant participant = new Participant(21,01);
+        assertThat(participant.haveAColdMeal()).isTrue();
+    }
+
+
 
 }
