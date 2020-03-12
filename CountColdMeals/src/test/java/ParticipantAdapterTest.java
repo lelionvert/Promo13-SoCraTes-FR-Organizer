@@ -12,4 +12,13 @@ public class ParticipantAdapterTest {
         ParticipantAdapter adapter = new ParticipantAdapter(csvContent);
         assertThat(adapter.csvContent).isEqualTo(csvContent);
     }
+
+    @Test
+    public void mealIsNotNull(){
+        String csvContent = "philippe dupond; thursday; 18h00; Sunday; 16h00";
+        ParticipantAdapter adapter = new ParticipantAdapter(csvContent);
+        Meal meal = adapter.parser();
+        assertThat(meal).isNotNull();
+    }
+
 }
