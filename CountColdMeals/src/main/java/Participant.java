@@ -1,13 +1,9 @@
 public class Participant {
 
-
-
     public ArrivalDate arrivalDate;
 
-
-
     private Participant(Integer arrivalHour, Integer arrivalMinute, Integer arrivalDay) {
-        this.arrivalDate = new ArrivalDate(arrivalHour, arrivalMinute, arrivalDay);
+        this.arrivalDate = ArrivalDate.createDateHourMinuteDay(arrivalHour, arrivalMinute, arrivalDay);
 
     }
 
@@ -25,8 +21,7 @@ public class Participant {
 
 
     public boolean haveAColdMeal() {
-        return arrivalDate.isBetween();
-
+        return arrivalDate.isInTheRightTime();
     }
 
 }

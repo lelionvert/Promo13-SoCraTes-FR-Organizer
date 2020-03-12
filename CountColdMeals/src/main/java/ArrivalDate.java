@@ -4,21 +4,33 @@ public class ArrivalDate {
     public static final Integer MIDNIGHT = 24;
     private static final Integer FIRST_DAY = 4;
     private static final Integer END_OF_HOT_MEALS = 21;
+    public static final Integer FIRST_HOUR = 16;
+    public static final Integer FIRST_MINUTE = 0;
 
     private Integer day;
     private Integer minute;
     private Integer hour;
 
-    public ArrivalDate(Integer hour, Integer minute, Integer day) {
+    private ArrivalDate(Integer hour, Integer minute, Integer day) {
         this.hour = hour;
         this.minute = minute;
         this.day = day;
     }
 
-    public ArrivalDate() {
-        this.hour = 16;
-        this.minute = 0;
-        this.day = 4;
+    public static ArrivalDate createDefaultDate() {
+        return new ArrivalDate(FIRST_HOUR, FIRST_MINUTE, FIRST_DAY);
+    }
+
+    public static ArrivalDate createDateHour(Integer hour) {
+        return new ArrivalDate(hour, FIRST_MINUTE, FIRST_DAY);
+    }
+
+    public static ArrivalDate createDateHourMinute(Integer hour, Integer minute) {
+        return new ArrivalDate(hour, minute, FIRST_DAY);
+    }
+
+    public static ArrivalDate createDateHourMinuteDay(Integer hour, Integer minute, Integer day) {
+        return new ArrivalDate(hour,minute,day);
     }
 
     public Integer getHour() {
@@ -33,7 +45,7 @@ public class ArrivalDate {
         return this.day;
     }
 
-    boolean isBetween() {
+    boolean isInTheRightTime() {
         if (! isOnTheFirstDay()) {
             return false;
         }
