@@ -36,7 +36,7 @@ public class ParticipantTest {
 
     @Test
     public void participantArrivedAt21h01MustHaveColdMeals(){
-        Participant participant = new Participant(21,01);
+        Participant participant = new Participant(21, 1);
         assertThat(participant.haveAColdMeal()).isTrue();
     }
 

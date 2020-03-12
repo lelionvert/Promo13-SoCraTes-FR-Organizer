@@ -16,11 +16,7 @@ public class Participant {
 
     public boolean haveAColdMeal() {
         if (arrivalHour== 21){
-            if (arrivalMinute>0){
-                return true;
-            }else {
-                return false;
-            }
+            return arrivalMinute > 0;
         } else {
             return arrivalHour > 21 && arrivalHour < 24;
         }
