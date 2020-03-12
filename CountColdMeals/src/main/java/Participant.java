@@ -5,21 +5,22 @@ public class Participant {
     public Integer arrivalHour;
 
 
-    public Participant(Integer arrivalHour) {
-        this(arrivalHour, 0);
-        this.arrivalDay = 4;
-    }
-
-    public Participant(Integer arrivalHour, Integer arrivalMinute) {
-        this.arrivalHour = arrivalHour;
-        this.arrivalMinute = arrivalMinute;
-        this.arrivalDay = 4;
-    }
-
-    public Participant(Integer arrivalHour, Integer arrivalMinute, Integer arrivalDay) {
+    private Participant(Integer arrivalHour, Integer arrivalMinute, Integer arrivalDay) {
         this.arrivalHour = arrivalHour;
         this.arrivalMinute = arrivalMinute;
         this.arrivalDay = arrivalDay;
+    }
+
+    public static Participant createParticipantHour(Integer arrivalHour){
+       return new Participant(arrivalHour, 0, 4);
+    }
+
+    public static Participant createParticipantHourMinute(Integer arrivalHour, Integer arrivalMinute){
+        return new Participant(arrivalHour, arrivalMinute, 4);
+    }
+
+    public static Participant createParticipantHourMinuteDay(Integer arrivalHour, Integer arrivalMinute, Integer arrivalDay){
+        return new Participant(arrivalHour, arrivalMinute, arrivalDay);
     }
 
 
