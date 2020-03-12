@@ -3,6 +3,9 @@ public class Meal {
     private int participants;
     private int punctualParticipants;
 
+
+    private Participant participant;
+
     public Meal(int participants) {
         this.participants = participants;
         this.punctualParticipants = 0;
@@ -13,12 +16,17 @@ public class Meal {
         this.punctualParticipants = punctualParticipants;
     }
 
+    public Meal(Participant participant) {
+        this.participant = participant;
+    }
+
 
     public int getColdMeals() {
-        if(participants == 10) {
-            return participants - punctualParticipants;
+        if (! this.participant.haveAColdMeal()){
+            return 0;
+        }else{
+            return 1;
         }
-        return participants;
     }
 
 
