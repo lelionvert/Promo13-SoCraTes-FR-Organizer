@@ -3,31 +3,22 @@ import java.util.List;
 public class Meal {
 
     private List<Participant> listParticipants;
-    private Participant participant;
-
-    public Meal(Participant participant) {
-        this.participant = participant;
-    }
+    private static Integer countOfColdMeals;
 
     public Meal(List<Participant> listParticipants) {
         this.listParticipants = listParticipants;
+        countOfColdMeals = 0;
     }
 
     public int getColdMeals() {
-
-        if (this.listParticipants != null ){
-            if (this.listParticipants.get(0).haveAColdMeal()){
-                return 2;
-            } else if (this.listParticipants.get(1).haveAColdMeal()){
-                return 1;
+        if (this.listParticipants != null) {
+            for (Participant participant : this.listParticipants) {
+                if (participant.haveAColdMeal()) {
+                    countOfColdMeals++;
+                }
             }
-            return 0;
         }
-        if (! this.participant.haveAColdMeal()){
-            return 0;
-        }else{
-            return 1;
-        }
+        return countOfColdMeals;
     }
 
 
