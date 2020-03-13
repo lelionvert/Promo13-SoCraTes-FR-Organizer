@@ -43,4 +43,21 @@ public class PriceWithoutOneMealTest {
         assertThat(price).isEqualTo(200);
     }
 
+    @Test
+    public void Participant_ArrivesThursdayAt18_LeavesSaturdayAt21_ChooseSingle_AndPaid570() {
+        String input = "Robert;jeudi;18h;samedi;21h;Single";
+
+        long price = BlackBox.calculatePrice(input);
+
+        assertThat(price).isEqualTo(570);
+    }
+
+    @Test
+    public void Participant_ArrivesFridayAt9_LeavesSundayAt18_ChooseNoAccommodation_AndPaid200() {
+        String input = "Jean;vendredi;9h;Dimanche;18h;No Accommodation";
+
+        long price = BlackBox.calculatePrice(input);
+
+        assertThat(price).isEqualTo(200);
+    }
 }

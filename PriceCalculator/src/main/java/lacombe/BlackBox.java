@@ -10,28 +10,36 @@ public class BlackBox {
 
     public static long calculatePrice(String input) {
         if (isSingle(input)) {
-            if(input.contains(("vendredi"))){
+            if (isArrivedOnFriday(input) || isDepartureOnSaturday(input)) {
                 return 610 - MEAL_PRICE;
             }
             return 610;
         } else if (isNoAccomodation(input)) {
-            if (input.contains("samedi")) {
+            if (isArrivedOnFriday(input) || isDepartureOnSaturday(input)) {
                 return 240 - MEAL_PRICE;
             }
             return 240;
-        } else if (isTwin(input)){
-            if (input.contains(("samedi"))) {
+        } else if (isTwin(input)) {
+            if (isArrivedOnFriday(input) || isDepartureOnSaturday(input)) {
                 return 510 - MEAL_PRICE;
             }
             return 510;
         } else if (isTriple(input)) {
-            if(input.contains("vendredi")){
+            if (isArrivedOnFriday(input) || isDepartureOnSaturday(input)) {
                 return 410 - MEAL_PRICE;
             }
             return 410;
         } else {
             return 0;
         }
+    }
+
+    private static boolean isDepartureOnSaturday(String input) {
+        return input.contains(("samedi"));
+    }
+
+    private static boolean isArrivedOnFriday(String input) {
+        return input.contains(("vendredi"));
     }
 
     private static boolean isTriple(String input) {
