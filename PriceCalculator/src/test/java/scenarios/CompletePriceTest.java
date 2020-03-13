@@ -1,9 +1,11 @@
+package scenarios;
+
 import lacombe.BlackBox;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class FunctionalPriceCalculatorTest {
+public class CompletePriceTest {
 
     @Test
     public void Participant_ArrivesThursdayAt17_LeavesSundayAt14_ChooseSingle_AndPaid610() {
