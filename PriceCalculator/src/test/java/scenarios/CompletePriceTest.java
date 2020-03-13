@@ -42,4 +42,13 @@ public class CompletePriceTest {
 
         assertThat(price).isEqualTo(410);
     }
+
+    @Test
+    public void Participant_ArrivesThursdayAt21_LeavesSundayAt16_ChooseError(){
+        String input = "crafter;jeudi;21h;dimanche;16h;XXXX";
+
+        long price = PriceCalculator.calculatePrice(input);
+
+        assertThat(price).isEqualTo(-1);
+    }
 }
