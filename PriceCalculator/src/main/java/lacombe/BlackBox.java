@@ -1,34 +1,30 @@
 package lacombe;
 
+import static lacombe.Choice.*;
+
 public class BlackBox {
 
     public static final int MEAL_PRICE = 40;
 
     public static long calculatePrice(String input) {
         if (isSingle(input)) {
-            if (isArrivedOnFriday(input) || isDepartureOnSaturday(input)) {
-                return Choice.SINGLE.getPrice() - MEAL_PRICE;
-            }
-            return Choice.SINGLE.getPrice();
-
+            return calculatePriceFor(input, SINGLE);
         } else if (isNoAccomodation(input)) {
-            if (isArrivedOnFriday(input) || isDepartureOnSaturday(input)) {
-                return Choice.NO_ACCOMMODATION.getPrice() - MEAL_PRICE;
-            }
-            return Choice.NO_ACCOMMODATION.getPrice();
+            return calculatePriceFor(input, NO_ACCOMMODATION);
         } else if (isTwin(input)) {
-            if (isArrivedOnFriday(input) || isDepartureOnSaturday(input)) {
-                return Choice.TWIN.getPrice() - MEAL_PRICE;
-            }
-            return Choice.TWIN.getPrice();
+            return calculatePriceFor(input, TWIN);
         } else if (isTriple(input)) {
-            if (isArrivedOnFriday(input) || isDepartureOnSaturday(input)) {
-                return Choice.TRIPLE.getPrice() - MEAL_PRICE;
-            }
-            return Choice.TRIPLE.getPrice();
+            return calculatePriceFor(input, TRIPLE);
         } else {
             return 0;
         }
+    }
+
+    private static long calculatePriceFor(String input, Choice choice) {
+        if (isArrivedOnFriday(input) || isDepartureOnSaturday(input)) {
+            return choice.getPrice() - MEAL_PRICE;
+        }
+        return choice.getPrice();
     }
 
     private static boolean isDepartureOnSaturday(String input) {
@@ -40,18 +36,18 @@ public class BlackBox {
     }
 
     private static boolean isTriple(String input) {
-        return input.contains(Choice.TRIPLE.getName());
+        return input.contains(TRIPLE.getName());
     }
 
     private static boolean isTwin(String input) {
-        return input.contains(Choice.TWIN.getName());
+        return input.contains(TWIN.getName());
     }
 
     private static boolean isNoAccomodation(String input) {
-        return input.contains(Choice.NO_ACCOMMODATION.getName());
+        return input.contains(NO_ACCOMMODATION.getName());
     }
 
     private static boolean isSingle(String input) {
-        return input.contains(Choice.SINGLE.getName());
+        return input.contains(SINGLE.getName());
     }
 }
